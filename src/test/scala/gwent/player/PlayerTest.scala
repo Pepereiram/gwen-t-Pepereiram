@@ -6,7 +6,7 @@ class PlayerTest extends FunSuite {
   var Player1: Player = null
   var Player2: Player = null
 
-  override def BeforeEach(context: BeforeEach): Unit = {
+  def BeforeEach(context: BeforeEach): Unit = {
     /* nombre, sec tab, gems, deck, hand */
     Player1 = new Player("Geralt")
     Player2 = new Player("Roach")
