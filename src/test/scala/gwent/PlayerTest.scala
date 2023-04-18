@@ -1,21 +1,24 @@
 package cl.uchile.dcc
-package gwent.player
+package gwent
+
 import munit.FunSuite
 
 class PlayerTest extends FunSuite {
-  var Player1: Player = null
-  var Player2: Player = null
+  var Player1: Player = _
+  var Player2: Player = _
+  var name1: String = "Geralt"
+  var name2: String = "Roach"
 
-  def BeforeEach(context: BeforeEach): Unit = {
+  override def beforeEach(context: BeforeEach): Unit = {
     /* nombre, sec tab, gems, deck, hand */
-    Player1 = new Player("Geralt")
-    Player2 = new Player("Roach")
+    Player1 = new Player(name1)
+    Player2 = new Player(name2)
     /*crear decks y cartas de prueba*/
   }
 
   test("Players have names"){
-    assertEquals(Player1.name,"Geralt")
-    assertEquals(Player2.name, "Roach")
+    assertEquals(Player1.name,name1)
+    assertEquals(Player2.name, name2)
     assertNotEquals(Player1.name, Player2.name)
   }
 

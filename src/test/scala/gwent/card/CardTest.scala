@@ -4,9 +4,9 @@ package gwent.card
 import munit.FunSuite
 
 class CardTest extends FunSuite {
-  var Card1: Card = null
-  var Card2: Card = null
-  def BeforeEach(context: BeforeEach): Unit = {
+  var Card1: Card = _
+  var Card2: Card = _
+  override def beforeEach(context: BeforeEach): Unit = {
     /*Cartas tiene nombre y efecto*/
     Card1 = new Card("Triss",null)
     Card2 = new Card("Geralt",null)

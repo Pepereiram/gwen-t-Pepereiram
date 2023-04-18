@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package gwent.player
+package gwent
 
 /** Class that represents a player in Gwent */
 class Player(val name: String) extends IPlayer {
@@ -9,16 +9,14 @@ class Player(val name: String) extends IPlayer {
   //var hand: Array[String]
   /*var deck: Array[Card] = null*/
   /*var hand: Array[Card] = null*/
-
-  def this(name: String, gems: Int) = {
-    this(name)
-    this.gems = 2
-  }
-
   override def equals(obj: Any): Boolean = super.equals(obj)
 
   override def getName(): String = {
     this.name
+  }
+
+  override def getGems(): Int = {
+    this.gems
   }
 
   override def drawCards(): Boolean = {
