@@ -19,19 +19,19 @@ class SiegeUnitCardTest extends FunSuite{
   }
 
   test("Cards have names") {
-    assertEquals(card1.name, name1)
-    assertEquals(card2.name, name2)
-    assertNotEquals(card1.name, card2.name)
+    assertEquals(card1.getName, name1)
+    assertEquals(card2.getName, name2)
+    assertNotEquals(card1.getEffect, card2.getName)
   }
   test("Card have effects") {
-    assertEquals(card1.effect, effect1)
-    assertEquals(card2.effect, effect2)
-    assertNotEquals(card1.effect, card2.effect)
+    assertEquals(card1.getEffect, effect1)
+    assertEquals(card2.getEffect, effect2)
+    assertNotEquals(card1.getEffect, card2.getEffect)
   }
   test("Siege Cards have power") {
-    assertEquals(card1.power, power1)
-    assertEquals(card2.power, power2)
-    assertNotEquals(card1.power, card2.power)
+    assertEquals(card1.getPower, power1)
+    assertEquals(card2.getPower, power2)
+    assertNotEquals(card1.getPower, card2.getPower)
   }
   test("Cards can be compared") {
     val card3: ICard = new SiegeUnitCard(name1, effect1, power1)

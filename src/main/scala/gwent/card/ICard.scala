@@ -6,7 +6,7 @@ trait ICard {
   /** Method that returns the Card's name */
   val name: String
   val effect: String
-  def getName (): String
-  def getEffect(): String
+  def getName: String
+  def getEffect: String
 
 }

@@ -23,19 +23,34 @@ class PlayerTest extends FunSuite {
   }
 
   test("Players have names"){
-    assertEquals(Player1.name,name1)
-    assertEquals(Player2.name, name2)
-    assertNotEquals(Player1.name, Player2.name)
+    assertEquals(Player1.getName,name1)
+    assertEquals(Player2.getName, name2)
+    assertNotEquals(Player1.getName, Player2.getName)
   }
 
   test("Players have gems"){
-    assertEquals(Player1.gems,2)
-    assertEquals(Player2.gems, Player2.gems)
-    /*Probar en el futuro el perder gemas*/
+    assertEquals(Player1.getGems,2)
+    assertEquals(Player2.getGems, Player2.getGems)
   }
-  test("Players have decks"){
-
-    /*les damos decks y verificamos*/
+  test("Players can lose gems"){
+    assertEquals(Player1.getGems,2)
+    assert(Player1.setGems(1))
+    assertEquals(Player1.getGems,1)
+    assert(Player2.setGems(2))
+    assertEquals(Player2.getGems,0)
+    assert(!Player2.setGems(1))
+  }
+  test("Player can be compared"){
+    assert(Player1.equals(Player1))
+    val Player3: IPlayer = new Player(name1,deck)
+    assert(Player1.equals(Player3))
+    assert(Player3.equals(Player1))
+    assert(!Player2.equals(Player1))
+    assert(!Player1.equals(climateCard))
+  }
+  test("Decks can be shuffled"){
+    assertEquals(Player1.getDeck, deck)
+    assert(Player1.shuffleDeck)
   }
   test("Players can draw cards"){
     assert(Player1.deck.nonEmpty)
@@ -53,11 +68,10 @@ class PlayerTest extends FunSuite {
     assert(!Player1.playCard(climateCard))
     //obtnemos carta y la jugamos
     Player1.drawCards()
+    //
+    assert(Player1.getHand.nonEmpty)
     assert(Player1.playCard(climateCard))
     //nuevamente no tenemos carta
     assert(!Player1.playCard(climateCard))
-  }
-  test("Players draw cards"){
-    /*roban cartas del deck (3)*/
   }
 }

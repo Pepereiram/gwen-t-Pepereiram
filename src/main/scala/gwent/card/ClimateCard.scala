@@ -14,10 +14,10 @@ class ClimateCard(name: String, effect: String) extends AbstractCard(name, effec
       false
     }
   }
-  override def getEffect(): String = {
+  override def getEffect: String = {
     this.effect
   }
-  override def getName(): String = {
+  override def getName: String = {
     this.name
   }
 }

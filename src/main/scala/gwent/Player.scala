@@ -9,8 +9,8 @@ import scala.util.Random
 /** Class that represents a player in Gwent */
 class Player(val name: String, var deck: ListBuffer[ICard]) extends IPlayer with Equals {
   /** Gems are the "HP" in Gwent */
-  var gems: Int = 2
-  val hand: ListBuffer[ICard] = ListBuffer()
+  private var gems: Int = 2
+  private var hand: ListBuffer[ICard] = ListBuffer()
 
   override def equals(that: Any): Boolean = {
     if(canEqual(that)){
@@ -20,26 +20,41 @@ class Player(val name: String, var deck: ListBuffer[ICard]) extends IPlayer with
       false
     }
   }
-
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[Player]
   }
-
   override def drawCards(): Boolean = {
     /* if there are cards in deck -> add to hand and true, if not false */
     if (this.deck.isEmpty){
       false
     } else{
-      val card: ICard = deck.head
-      this.hand.addOne(card)
-      deck.remove(0)
+      val card: ICard = this.deck.head
+      this.hand += card
+      this.deck.remove(0)
       true
     }
   }
 
-  override def shuffleDeck(deck: ListBuffer[ICard]): Boolean = {
-    if (deck.nonEmpty) {
-      Random.shuffle(deck)
+  override def getName: String = this.name
+
+  override def getGems: Int = this.gems
+
+  override def setGems(value: Int): Boolean = {
+    if (this.gems > 0) {
+      this.gems -= value
+      true
+    } else {
+      false
+    }
+  }
+
+  override def getDeck: ListBuffer[ICard] = this.deck
+
+  override def getHand: ListBuffer[ICard] = this.hand
+
+  override def shuffleDeck: Boolean = {
+    if (this.deck.nonEmpty) {
+      Random.shuffle(this.deck)
       true
     } else {
       println("Deck is empty")
@@ -49,9 +64,9 @@ class Player(val name: String, var deck: ListBuffer[ICard]) extends IPlayer with
 
   override def playCard(card: ICard): Boolean = {
     /* if the card is in hand -> true and play it, if not false */
-    if (hand.contains(card) && hand.nonEmpty){
+    if (this.hand.contains(card) && this.hand.nonEmpty){
       //Not yet implemented
-      hand -= card
+      this.hand -= card
       true
     } else{
       println("Card not in hand")

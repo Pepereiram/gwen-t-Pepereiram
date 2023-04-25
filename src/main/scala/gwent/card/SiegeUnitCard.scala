@@ -14,17 +14,14 @@ class SiegeUnitCard(name: String, effect: String, power: Int) extends AbstractUn
       false
     }
   }
-  override def getName(): String = {
+  override def getName: String = {
     this.name
   }
-  override def getEffect(): String = {
+  override def getEffect: String = {
     this.effect
   }
-  override def getPower(): Int = {
+  override def getPower: Int = {
     this.power
   }
-  override def setPower(value: Int): Unit = {
-    super.setPower(value)
-  }
-
+  override def setPower(value: Int): Unit = super.setPower(value)
 }

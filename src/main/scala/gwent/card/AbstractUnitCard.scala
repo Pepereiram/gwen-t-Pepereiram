@@ -15,7 +15,10 @@ abstract class AbstractUnitCard(name: String, effect: String, var power: Int) ex
       false
     }
   }
-  def getPower(): Int = this.power
+  /** Method that returns the power from a Unit Card */
+  def getPower: Int = this.power
+
+  /** Method that changed the value of power from a Unit Card */
   def setPower(value: Int): Unit = {
     this.power = value
   }
