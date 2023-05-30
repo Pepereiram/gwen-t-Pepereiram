@@ -1,8 +1,9 @@
 package cl.uchile.dcc
 package gwent.card
+import gwent.board.PlayerSide
 
 /** Class that represents the Climate Cards in the game Gwent */
-class ClimateCard(name: String, effect: String) extends AbstractCard(name, effect) with Equals{
+class ClimateCard(val name: String, val effect: String) extends ICard with Equals{
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[ClimateCard]
   }
@@ -14,10 +15,8 @@ class ClimateCard(name: String, effect: String) extends AbstractCard(name, effec
       false
     }
   }
-  override def getEffect: String = {
-    this.effect
-  }
-  override def getName: String = {
-    this.name
+
+  override def playCard(b: PlayerSide): Unit = {
+    b.placeClimateCard(this)
   }
 }

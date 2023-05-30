@@ -1,8 +1,9 @@
 package cl.uchile.dcc
 package gwent.card
+import gwent.board.PlayerSide
 
 /** Class that represents the Unit Cards in the game Gwent */
-abstract class AbstractUnitCard(name: String, effect: String, var power: Int) extends AbstractCard(name,effect) with Equals {
+abstract class AbstractUnitCard(val name: String, val effect: String, var _power: Int) extends ICard with Equals {
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[AbstractUnitCard]
   }
@@ -10,16 +11,18 @@ abstract class AbstractUnitCard(name: String, effect: String, var power: Int) ex
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
       val other = that.asInstanceOf[AbstractUnitCard]
-      (this eq other) || (this.name == other.name && this.effect == other.effect && this.power == other.power)
+      (this eq other) || (this.name == other.name && this.effect == other.effect && this._power == other._power)
     } else {
       false
     }
   }
   /** Method that returns the power from a Unit Card */
-  def getPower: Int = this.power
+  def power: Int = _power
 
   /** Method that changed the value of power from a Unit Card */
-  def setPower(value: Int): Unit = {
-    this.power = value
+  def power_(newPower: Int): Unit = {
+    _power = newPower
   }
+  /** Method that plays a UnitCard on the board */
+  override def playCard(b: PlayerSide): Unit
 }

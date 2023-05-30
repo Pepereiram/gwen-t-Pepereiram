@@ -30,7 +30,7 @@ class MeleeUnitCardTest extends FunSuite{
     assertNotEquals(card1.getEffect, card2.getEffect)
   }
   test("Melee Cards have power"){
-    assertEquals(card1.getPower, power1)
+    assertEquals(card1.power(), power1)
     assertEquals(card2.getPower,power2)
     assertNotEquals(card1.getPower,card2.getPower)
   }

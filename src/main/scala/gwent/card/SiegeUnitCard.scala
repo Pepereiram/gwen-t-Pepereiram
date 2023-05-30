@@ -1,5 +1,6 @@
 package cl.uchile.dcc
 package gwent.card
+import gwent.board.PlayerSide
 
 /** Class that represents a Siege Unit Card in the game Gwent */
 class SiegeUnitCard(name: String, effect: String, power: Int) extends AbstractUnitCard(name,effect,power) with Equals {
@@ -14,14 +15,8 @@ class SiegeUnitCard(name: String, effect: String, power: Int) extends AbstractUn
       false
     }
   }
-  override def getName: String = {
-    this.name
+
+  override def playCard(b: PlayerSide): Unit = {
+    b.placeSiegeCard(this)
   }
-  override def getEffect: String = {
-    this.effect
-  }
-  override def getPower: Int = {
-    this.power
-  }
-  override def setPower(value: Int): Unit = super.setPower(value)
 }
