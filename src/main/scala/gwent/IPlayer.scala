@@ -7,7 +7,9 @@ import scala.collection.mutable.ListBuffer
 /** Trait that dictates the general actions of a Player class */
 trait IPlayer {
   val name: String
-  var deck: ListBuffer[ICard]
+  var gems: Int
+  protected val deck: ListBuffer[ICard]
+  protected val hand: ListBuffer[ICard]
   /** Method that plays a Card */
   def playCard(card: ICard): Boolean
   /** Method that shuffles the Player's Deck */

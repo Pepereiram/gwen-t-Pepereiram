@@ -1,16 +1,14 @@
 package cl.uchile.dcc
 package gwent
 
-import card.{AbstractCard, ICard}
+import card.ICard
 
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
 /** Class that represents a player in Gwent */
-class Player(val name: String, var deck: ListBuffer[ICard]) extends IPlayer with Equals {
-  /** Gems are the "HP" in Gwent */
-  private var gems: Int = 2
-  private var hand: ListBuffer[ICard] = ListBuffer()
+class Player(val name: String, var gems: Int = 2,
+             val deck: ListBuffer[ICard], val hand: ListBuffer[ICard] ) extends IPlayer with Equals {
 
   override def equals(that: Any): Boolean = {
     if(canEqual(that)){
