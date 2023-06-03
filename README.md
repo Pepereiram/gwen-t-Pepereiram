@@ -13,7 +13,6 @@ This project's goal is to create a (simplified) clone of the
 
 ---
 
-**The rest of the documentation is left for the users of this template to complete**
 
 ## Observations for Tarea 2- Entrega Final issue.
 
@@ -35,30 +34,10 @@ problem with the design that has been noticed, but if the implementation of the 
 takes into account that given that a player placed a ClimateCard also place it on the opponent's field, then
 there should be no problems (inb4 it there are problems).
 
-### Changes in the Player class
-
-Aquí explicaré los metodos que se movieron de player a Card y PlayerSide para el doubledispatch
 
 ### Changes in visibility and privatization
 
-Se pondrán los cambios en visibilidad y provatizacion correspondientes
-
-### Unimplemented methods
-
-Si se dejan metodos sin implementar mencionarlos y cual sería su futura funcion
+Almost every variable has been made protected or private, depending on if the variables where going
+to be used on a inheriting class. Most Traits have protected variables.
 
 
-## Hacer Codigo
-```scala
-val intVal : Int = 4 //Int variable with the number 4 in it
-```
-
-# Nueva seccion
-## Subseccion
-### subsubsecion
-texto `texto2` texto3 ``texto4``  
-
-```bash
-texto de consola
-sbt test 
-```
