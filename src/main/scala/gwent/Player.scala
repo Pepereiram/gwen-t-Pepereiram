@@ -2,7 +2,6 @@ package cl.uchile.dcc
 package gwent
 
 import card.ICard
-
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 

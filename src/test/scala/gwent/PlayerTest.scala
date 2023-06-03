@@ -17,7 +17,7 @@ class PlayerTest extends FunSuite {
   val meleeCard2: ICard = new MeleeUnitCard("Geralt","null",4)
   val rangeCard: ICard = new RangeUnitCard("Daff", null,2)
   val deck: ListBuffer[ICard] = ListBuffer(climateCard,meleeCard1,meleeCard2,rangeCard,siegeCard)
-  val hand: ListBuffer[ICard] = ListBuffer(climateCard)
+  val hand: ListBuffer[ICard] = ListBuffer()
   override def beforeEach(context: BeforeEach): Unit = {
     Player1 = new Player(name1,deck,hand)
     Player2 = new Player(name2,deck,hand)
@@ -51,6 +51,9 @@ class PlayerTest extends FunSuite {
   test("Decks can be shuffled"){
     assertEquals(Player1.deck, deck)
     assert(Player1.shuffleDeck)
+    val emptyDeck : ListBuffer[ICard] = new ListBuffer()
+    val player3: IPlayer = new Player(name1,emptyDeck,hand)
+    assert(!player3.shuffleDeck)
   }
   test("Players can draw cards"){
     assert(Player1.deck.nonEmpty)
