@@ -20,13 +20,14 @@ import scala.util.Random
  * @version 1.2
  * @since 1.0
  */
-class Player(val _name: String, var _gems: Int = 2,
-             val _deck: ListBuffer[ICard], val _hand: ListBuffer[ICard] ) extends IPlayer with Equals {
+class Player(val _name: String,
+             val _deck: ListBuffer[ICard], val _hand: ListBuffer[ICard],
+             var _gems: Int = 2) extends IPlayer with Equals {
 
   override def equals(that: Any): Boolean = {
     if(canEqual(that)){
       val other = that.asInstanceOf[Player]
-      (this eq other) || (this._name == other._name && this._deck == other._deck && this._hand == other._hand)
+      (this eq other) || (this.name == other.name && this.deck == other.deck && this.hand == other.hand)
     } else {
       false
     }
@@ -63,7 +64,7 @@ class Player(val _name: String, var _gems: Int = 2,
       false
     }
   }
-  override def drawCards(): Boolean = {
+  override def drawCard(): Boolean = {
     /* if there are cards in deck -> add to hand and true, if not false */
     if (this._deck.isEmpty) {
       false

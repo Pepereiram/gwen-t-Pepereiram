@@ -10,7 +10,7 @@ trait IPlayer {
   protected var _gems: Int
   protected val _deck: ListBuffer[ICard]
   protected val _hand: ListBuffer[ICard]
-  
+
   /** Method the returns the Player's name */
   def name: String
   /** Method that returns the Player's current gems */
@@ -22,12 +22,12 @@ trait IPlayer {
   /** Method that shuffles the Player's Deck */
   def shuffleDeck: Boolean
   /** Method that draws cards from the Player's deck */
-  def drawCards(): Boolean
+  def drawCard(): Boolean
   /** Method that returns the Player's Hand */
   def hand: ListBuffer[ICard]
   /** Method that returns the Player's Deck */
   def deck: ListBuffer[ICard]
-  
+
 
 
 }
