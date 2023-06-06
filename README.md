@@ -12,9 +12,14 @@ This project's goal is to create a (simplified) clone of the
 [_Gwent_](https://www.playgwent.com/en)card game developed by [_CD PROJEKT RED_](https://cdprojektred.com/en/)
 
 ---
+# Observations for Tarea 3 - Entrega Parcial 4.
+
+## Diagrama de estados
+
+![Diagrama de estados](docs/diagrama-estados.png)
 
 
-## Observations for Tarea 2- Entrega Final issue.
+# Observations for Tarea 2- Entrega Final.
 
 Here you can find important observations about the design and structure of the project while developing
 this assignment. It will be divided in subsection depending on the subject that requires to be addressed.
@@ -39,5 +44,6 @@ there should be no problems (inb4 it there are problems).
 
 Almost every variable has been made protected or private, depending on if the variables where going
 to be used on a inheriting class. Most Traits have protected variables.
+
 
 
