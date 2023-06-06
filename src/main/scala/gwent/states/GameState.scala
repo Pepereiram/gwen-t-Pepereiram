@@ -23,6 +23,9 @@ class GameState protected(val context : GameController) {
       s"Cannot transition from ${getClass.getSimpleName} to $targetState"
     )
   }
+  def toStartingState():Unit ={
+    transitionError("StartingState")
+  }
   def toIdleState():Unit = {
     transitionError("IdleState")
   }
