@@ -14,9 +14,9 @@ This project's goal is to create a (simplified) clone of the
 ---
 # Observations for Tarea 3 - Entrega Parcial 4.
 
-## Diagrama de estados
+## State Diagram
 
-![Diagrama de estados](docs/diagrama-estados.png)
+![Diagrama de estados](docs/state-diagram-v2.png)
 
 
 # Observations for Tarea 2- Entrega Final.
