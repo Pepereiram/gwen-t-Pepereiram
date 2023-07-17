@@ -3,7 +3,7 @@ package gwent.card
 import gwent.board.PlayerSide
 
 /** Class that represents a Siege Unit Card in the game Gwent */
-class SiegeUnitCard(_name: String, _effect: String, _power: Int) extends AbstractUnitCard(_name,_effect,_power) with Equals {
+class SiegeUnitCard(_name: String, _effect: Effect, _power: Int) extends AbstractUnitCard(_name,_effect,_power) with Equals {
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[SiegeUnitCard]
   }
@@ -18,7 +18,7 @@ class SiegeUnitCard(_name: String, _effect: String, _power: Int) extends Abstrac
 
   override def name: String = _name
 
-  override def effect: String = _effect
+  override def effect: Effect = _effect
 
   override def power: Int = _power
 

@@ -12,6 +12,17 @@ This project's goal is to create a (simplified) clone of the
 [_Gwent_](https://www.playgwent.com/en)card game developed by [_CD PROJEKT RED_](https://cdprojektred.com/en/)
 
 ---
+# Observations for Tarea 3 - Entrega Final.
+## Design Patterns
+### Card Effects
+For the Card effects an Effect trait was created. This would dictate how the Cards with effects
+should behave. Also, an Observer Pattern was implemented to notify the Cards in the field (the Observers)
+when another card with an effect was placed (the Subject), being a Card on the same row or a Climate Card.
+### Win Condition
+When a Player loses all of their gems, the game is over and the win condition is reached.
+To notify the Controller of this, a Observer Pattern was implemented, using the Game Controller
+as the Observer and the Player as the Subject.
+
 # Observations for Tarea 3 - Entrega Parcial 4.
 
 ## State Diagram

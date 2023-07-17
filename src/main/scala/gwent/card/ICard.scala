@@ -7,11 +7,11 @@ import gwent.board.PlayerSide
 trait ICard {
   /** Method that returns the Card's name */
   protected val _name: String
-  protected val _effect: String
+  protected val _effect: Effect
   /** Method that returns the Card's name */
   def name: String = _name
   /** Method that returns the Card's effect */
-  def effect: String = _effect
+  def effect: Effect = _effect
   /** Method that plays a Card in a given PlayerSide */
   def playCard(b: PlayerSide): Unit
 

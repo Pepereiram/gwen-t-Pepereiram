@@ -4,7 +4,7 @@ package gwent.card
 import gwent.board.PlayerSide
 
 /** Class that represents a Range Unit Card in the game Gwent */
-class RangeUnitCard(_name: String, _effect: String, _power: Int) extends AbstractUnitCard(_name, _effect, _power) with Equals {
+class RangeUnitCard(_name: String, _effect: Effect, _power: Int) extends AbstractUnitCard(_name, _effect, _power) with Equals {
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[RangeUnitCard]
   }
@@ -20,7 +20,7 @@ class RangeUnitCard(_name: String, _effect: String, _power: Int) extends Abstrac
 
   override def name: String = _name
 
-  override def effect: String = _effect
+  override def effect: Effect = _effect
 
   override def power: Int = _power
   override def power_(newPower: Int): Unit = super.power_(newPower)

@@ -3,7 +3,7 @@ package gwent.card
 import gwent.board.PlayerSide
 
 /** Class that represents the Climate Cards in the game Gwent */
-class ClimateCard(val _name: String, val _effect: String) extends ICard with Equals{
+class ClimateCard(val _name: String, val _effect: Effect) extends ICard with Equals{
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[ClimateCard]
   }
