@@ -14,10 +14,21 @@ import gwent.GameController
  * @since 1.3
  * @version 1.3
  */
-class GameState protected(val context : GameController) {
-
+class GameState protected(val context : GameController) extends Equals {
+  
   context.state = this
 
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[GameState]
+      (this eq other) || (this.context == other.context)
+    } else {
+      false
+    }
+  }
+  override def canEqual(that: Any): Boolean = {
+    that.isInstanceOf[GameState]
+  }
   private def transitionError(targetState: String): Unit = {
     throw new InvalidTransitionException(
       s"Cannot transition from ${getClass.getSimpleName} to $targetState"

@@ -2,6 +2,8 @@ package cl.uchile.dcc
 package gwent
 
 import card.ICard
+import cl.uchile.dcc.gwent.observer.AbstractSubject
+
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
@@ -21,7 +23,9 @@ import scala.util.Random
  */
 class Player(val _name: String,
              val _deck: ListBuffer[ICard], val _hand: ListBuffer[ICard],
-             var _gems: Int = 2) extends IPlayer with Equals {
+             var _gems: Int = 2)
+              extends AbstractSubject[EndCondition]
+              with Equals with IPlayer {
 
   override def equals(that: Any): Boolean = {
     if(canEqual(that)){
@@ -34,11 +38,15 @@ class Player(val _name: String,
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[Player]
   }
+
   override def name: String = _name
   override def gems: Int = _gems
   override def gems_(value: Int): Unit = {
     if (this._gems > 0) {
       this._gems -= value
+    }
+    else{
+      notifyObservers(new EndCondition("running out of gems."))
     }
   }
   override def deck: ListBuffer[ICard] = _deck

@@ -1,6 +1,7 @@
 package cl.uchile.dcc
 package gwent.card
 
+import cl.uchile.dcc.gwent.card.effect.{CloseBond, Effect, NullEffect}
 import munit.FunSuite
 
 class RangeUnitCardTest extends FunSuite{
@@ -8,8 +9,8 @@ class RangeUnitCardTest extends FunSuite{
   var card2: AbstractUnitCard = _
   val name1: String = "Geralt"
   val name2: String = "Roach"
-  val effect1: String = "a"
-  val effect2: String = "b"
+  val effect1: Effect = new NullEffect()
+  val effect2: Effect = new CloseBond()
   val power1: Int = 5
   val power2: Int = 2
 

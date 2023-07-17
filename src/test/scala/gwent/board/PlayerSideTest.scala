@@ -3,15 +3,16 @@ package gwent.board
 
 import gwent.card.*
 import gwent.{IPlayer, Player}
+import gwent.card.effect.*
 import munit.FunSuite
 import scala.collection.mutable.ListBuffer
 
 class PlayerSideTest extends FunSuite{
-  val noneClimate: ICard = new ClimateCard("None", "None")
-  val rainClimate: ICard = new ClimateCard("Rain","Rains on the field")
-  val melee: ICard = new MeleeUnitCard("Melee","None",5)
-  val range: ICard = new RangeUnitCard("Ranged", "None", 3)
-  val siege: ICard = new SiegeUnitCard("Siege", "None", 6)
+  val noneClimate: ICard = new ClimateCard("None", new NullEffect())
+  val rainClimate: ICard = new ClimateCard("Rain",new NullEffect())
+  val melee: ICard = new MeleeUnitCard("Melee", new NullEffect(),5)
+  val range: ICard = new RangeUnitCard("Ranged", new NullEffect(), 3)
+  val siege: ICard = new SiegeUnitCard("Siege", new NullEffect(), 6)
   val player1: IPlayer = new Player("Homero", new ListBuffer[ICard], new ListBuffer[ICard])
   val player2: IPlayer = new Player("Juan", new ListBuffer[ICard], new ListBuffer[ICard])
   val meleeZone1: ListBuffer[ICard] = new ListBuffer()

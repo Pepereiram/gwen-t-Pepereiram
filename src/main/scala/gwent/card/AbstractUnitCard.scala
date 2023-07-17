@@ -2,6 +2,8 @@ package cl.uchile.dcc
 package gwent.card
 import gwent.board.PlayerSide
 
+import cl.uchile.dcc.gwent.card.effect.Effect
+
 /** Class that represents the Unit Cards in the game Gwent */
 abstract class AbstractUnitCard(protected val _name: String, protected val _effect: Effect,
                                 protected var _power: Int) extends ICard with Equals {

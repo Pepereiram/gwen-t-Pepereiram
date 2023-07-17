@@ -3,6 +3,7 @@ package gwent
 
 import munit.FunSuite
 import gwent.card.*
+import gwent.card.effect.*
 
 import scala.collection.mutable.ListBuffer
 
@@ -11,11 +12,11 @@ class PlayerTest extends FunSuite {
   var Player2: Player = _
   val name1: String = "Geralt"
   val name2: String = "Roach"
-  val climateCard: ICard = new ClimateCard("cartita",null)
-  val siegeCard: ICard = new SiegeUnitCard("cartota","null",5)
-  val meleeCard1: ICard = new MeleeUnitCard("Juan","null",3)
-  val meleeCard2: ICard = new MeleeUnitCard("Geralt","null",4)
-  val rangeCard: ICard = new RangeUnitCard("Daff", null,2)
+  val climateCard: ICard = new ClimateCard("cartita",new NullEffect())
+  val siegeCard: ICard = new SiegeUnitCard("cartota",new NullEffect(),5)
+  val meleeCard1: ICard = new MeleeUnitCard("Juan", new NullEffect(),3)
+  val meleeCard2: ICard = new MeleeUnitCard("Geralt", new NullEffect(),4)
+  val rangeCard: ICard = new RangeUnitCard("Daff", new NullEffect(),2)
   val deck: ListBuffer[ICard] = ListBuffer(climateCard,meleeCard1,meleeCard2,rangeCard,siegeCard)
   val hand: ListBuffer[ICard] = ListBuffer()
   override def beforeEach(context: BeforeEach): Unit = {

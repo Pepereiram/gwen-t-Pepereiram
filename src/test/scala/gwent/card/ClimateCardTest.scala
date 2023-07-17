@@ -5,6 +5,7 @@ import gwent.{IPlayer, Player}
 
 import gwent.board.PlayerSide
 import munit.FunSuite
+import gwent.card.effect.*
 
 import scala.collection.mutable.ListBuffer
 
@@ -12,11 +13,11 @@ class ClimateCardTest extends FunSuite{
   var card1: ICard = _
   var card2: ICard = _
   val name1: String = "Lluvia Torrencial"
-  val effect1: String = "Rain"
+  val effect1: Effect = new Rain()
   val name2: String = "Clima Despejado"
-  val effect2: String = "None"
+  val effect2: Effect = new Clear()
   val player: IPlayer = new Player("player",new ListBuffer[ICard], new ListBuffer[ICard])
-  val playerSide: PlayerSide = new PlayerSide(player, new ClimateCard("", ""),
+  val playerSide: PlayerSide = new PlayerSide(player, new ClimateCard("", new NullEffect()),
                                               new ListBuffer[ICard], new ListBuffer[ICard], new ListBuffer[ICard])
 
   override def beforeEach(context: BeforeEach): Unit = {
@@ -27,7 +28,7 @@ class ClimateCardTest extends FunSuite{
   test("Cards have names"){
     assertEquals(card1.name,name1)
     assertEquals(card2.name,name2)
-    assertNotEquals(card1.effect,card2.name)
+    assertNotEquals(card1.name,card2.name)
   }
   test("Card have effects"){
     assertEquals(card1.effect,effect1)

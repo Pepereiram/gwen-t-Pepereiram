@@ -3,6 +3,8 @@ package gwent.card
 
 import gwent.board.PlayerSide
 
+import cl.uchile.dcc.gwent.card.effect.Effect
+
 /** Class that represents a Range Unit Card in the game Gwent */
 class RangeUnitCard(_name: String, _effect: Effect, _power: Int) extends AbstractUnitCard(_name, _effect, _power) with Equals {
   override def canEqual(that: Any): Boolean = {

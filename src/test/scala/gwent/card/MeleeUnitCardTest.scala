@@ -3,14 +3,15 @@ package gwent.card
 
 import munit.Clue.generate
 import munit.FunSuite
+import gwent.card.effect.*
 
 class MeleeUnitCardTest extends FunSuite{
   var card1: AbstractUnitCard = _
   var card2: AbstractUnitCard = _
   val name1: String = "Geralt"
   val name2: String = "Roach"
-  val effect1: String = "a"
-  val effect2: String = "b"
+  val effect1: Effect = new NullEffect()
+  val effect2: Effect = new CloseBond()
   val power1: Int = 5
   val power2: Int = 2
 

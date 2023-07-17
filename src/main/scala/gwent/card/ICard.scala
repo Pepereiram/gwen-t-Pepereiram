@@ -3,6 +3,8 @@ package gwent.card
 
 import gwent.board.PlayerSide
 
+import cl.uchile.dcc.gwent.card.effect.Effect
+
 /** Trait that dictates the general behavior of a Card */
 trait ICard {
   /** Method that returns the Card's name */
