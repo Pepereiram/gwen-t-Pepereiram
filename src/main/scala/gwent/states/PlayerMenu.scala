@@ -4,6 +4,18 @@ package gwent.states
 import gwent.GameController
 
 class PlayerMenu(context: GameController) extends GameState(context){
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[PlayerMenu]
+      (this eq other) || (this.context == other.context)
+    } else {
+      false
+    }
+  }
+
+  override def canEqual(that: Any): Boolean = {
+    that.isInstanceOf[PlayerMenu]
+  }
   /** Transition the game state from [[PlayerMenu]] to [[DrawingCard]].
    */
   override def toDrawingCard(): Unit = {
